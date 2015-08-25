@@ -23,10 +23,10 @@ class ShellJob extends AbstractProcessJob
     /**
      * Set the command to execute as if you would run it in the shell.
      *
-     * @param string $command
+     * @param Process $process
      */
-    public function setCommand($command)
+    public function setProcess(Process $process)
     {
-        $this->process = new Process($command);
+        $this->process = $process;
     }
 }
