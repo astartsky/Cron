@@ -65,7 +65,8 @@ abstract class AbstractProcessJob extends AbstractJob
     {
         $this->report = $report;
         $report->setStartTime(microtime(true));
-        $this->getProcess()->start(function ($type, $buffer) use ($report) {
+        $this->getProcess()->start();
+        $this->getProcess()->wait(function ($type, $buffer) use ($report) {
             if (Process::ERR === $type) {
                 $report->addError($buffer);
             } else {
